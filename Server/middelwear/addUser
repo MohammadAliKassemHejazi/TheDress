@@ -1,0 +1,17 @@
+const User = require("../models/user");
+module.exports = async (req, res, next) => {
+  await User.findByPk(req.userId)
+    .then((result) => {
+      if (!result) {
+        const error = new Error("undefind user");
+        error.statusCode = 500;
+        throw error;
+      }
+      req.user = result;
+      // console.log(req.user);
+    })
+    .catch((e) => {
+      next(e);
+    });
+  next();
+};
