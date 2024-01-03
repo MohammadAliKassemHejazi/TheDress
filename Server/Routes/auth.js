@@ -24,10 +24,6 @@ router.put(
     body("name").trim().not().isEmpty(),
     body("phone").trim().not().isEmpty(),
     body("address").trim().not().isEmpty(),
-    body("isA").trim().not().isEmpty(),
-    body("isB").trim().not().isEmpty(),
-    body("isC").trim().not().isEmpty(),
-    body("isS").trim().not().isEmpty(),
   ],
   authController.signup
 );
