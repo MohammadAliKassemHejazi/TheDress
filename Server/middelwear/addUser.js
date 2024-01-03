@@ -1,4 +1,5 @@
 const User = require("../models/user");
+
 module.exports = async (req, res, next) => {
   await User.findByPk(req.userId)
     .then((result) => {
