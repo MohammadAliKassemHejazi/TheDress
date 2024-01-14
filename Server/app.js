@@ -44,7 +44,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://mohammad:1234554321@cluster0.y03b9cn.mongodb.net/Shop?retryWrites=true&w=majority",
+    "",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then((result) => {
