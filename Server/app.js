@@ -7,6 +7,7 @@ const app = express();
 const authRoutes = require("./Routes/auth.js");
 
 const mongoose = require("mongoose")
+require("dotenv").config();
 
 ////////////parsing/////////////////
 
@@ -43,12 +44,13 @@ app.use((error, req, res, next) => {
 
 
 mongoose
-  .connect(
-    "",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((result) => {
-    app.listen(4000);
+    app.listen(process.env.PORT);
+  
     console.log("connected");
   })
   .catch((err) => {
